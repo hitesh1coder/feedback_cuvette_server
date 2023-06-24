@@ -12,6 +12,7 @@ const getfilterproductroute = require("./routes/ProductRoute/GetFilterProduct");
 
 const uservoteroute = require("./routes/VoteRoute/VoteRoutes");
 const Product = require("./Models/ProductModel");
+const updateProductrout = require("./routes/ProductRoute/UpdateProduct");
 
 const app = express();
 
@@ -28,7 +29,7 @@ app.get("/", async (req, res) => {
 // get one product
 app.get("/product/:id", async (req, res) => {
   const product = await Product.findById(req.params.id);
-  res.send(product);
+  res.json(product);
 });
 
 // Routes
@@ -36,6 +37,7 @@ app.post("/register", registerroute);
 app.post("/login", loginroute);
 app.post("/add-product", addproductroutes);
 app.get("/products", getfilterproductroute);
+app.put("/product/update/:id", updateProductrout);
 app.post("/product/add-comment/:id", usercommentroute);
 app.post("/product/add-like/:id", uservoteroute);
 
