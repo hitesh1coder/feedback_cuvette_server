@@ -2,7 +2,6 @@ const Product = require("../../Models/ProductModel");
 
 const getfilterproductroute = async (req, res) => {
   try {
-    let category = req.query.category || req.query;
     let sortorder = 0;
     let userInput = req.query.sortorder;
     if (userInput === "Upvote") {
@@ -10,6 +9,7 @@ const getfilterproductroute = async (req, res) => {
     } else if (userInput === "Downvote") {
       sortorder = 1;
     }
+    let category = req.query.category || req.query;
     if (category === "All") {
       const allproduct = await Product.find().sort({ uservote: sortorder });
       return res.status(200).json(allproduct);

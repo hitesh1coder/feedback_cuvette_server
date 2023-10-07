@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const registerroute = require("./routes/Auth/RegisterRouts");
 const loginroute = require("./routes/Auth/LoginRouts");
+const auth = require("./Middleware/auth");
 const addproductroutes = require("./routes/ProductRoute/AddProductRouts");
 const usercommentroute = require("./routes/commentsRoutes/AddCommentRout");
 const getfilterproductroute = require("./routes/ProductRoute/GetFilterProduct");
@@ -35,7 +36,7 @@ app.get("/product/:id", async (req, res) => {
 // Routes
 app.post("/register", registerroute);
 app.post("/login", loginroute);
-app.post("/add-product", addproductroutes);
+app.post("/add-product", auth, addproductroutes);
 app.get("/products", getfilterproductroute);
 app.put("/product/update/:id", updateProductrout);
 app.post("/product/add-comment/:id", usercommentroute);
