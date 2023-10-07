@@ -1,6 +1,6 @@
 const Product = require("../../Models/ProductModel");
 
-const updateProductRoute = async (req, res) => {
+const updateProductrout = async (req, res) => {
   const { companyname, category, logourl, productlink, productdesc } = req.body;
   const id = req.params.id;
 
