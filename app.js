@@ -69,5 +69,5 @@ mongoose
   })
   .catch((err) => console.log("connection error: " + err));
 app.listen(port, () => {
-  console.log(`listening on port ${port}`);
+  console.log(`listening on  ${port}`);
 });
