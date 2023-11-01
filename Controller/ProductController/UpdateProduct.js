@@ -1,6 +1,6 @@
 const Product = require("../../Models/ProductModel");
 
-const updateProductrout = async (req, res) => {
+const updateProductController = async (req, res) => {
   const { companyname, category, logourl, productlink, productdesc } = req.body;
   const id = req.params.id;
 
@@ -22,4 +22,4 @@ const updateProductrout = async (req, res) => {
       .json({ message: "You are not authorized user! Login again", error });
   }
 };
-module.exports = updateProductrout;
+module.exports = updateProductController;

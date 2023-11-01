@@ -1,6 +1,6 @@
 const Product = require("../../Models/ProductModel");
 
-const getfilterproductroute = async (req, res) => {
+const getfilterproductController = async (req, res) => {
   try {
     let sortorder = 0;
     let userInput = req.query.sortorder;
@@ -24,4 +24,4 @@ const getfilterproductroute = async (req, res) => {
     res.status(500).json(error);
   }
 };
-module.exports = getfilterproductroute;
+module.exports = getfilterproductController;

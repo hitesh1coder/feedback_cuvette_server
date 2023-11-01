@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const Product = require("../../Models/ProductModel");
 
-const addproductroutes = async (req, res) => {
+const addProductController = async (req, res) => {
   const { companyname, category, logourl, productlink, productdesc } = req.body;
   const categoryArray = category.split(" ");
   try {
@@ -29,4 +29,4 @@ const addproductroutes = async (req, res) => {
   }
 };
 
-module.exports = addproductroutes;
+module.exports = addProductController;

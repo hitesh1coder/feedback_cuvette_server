@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const dotEnv = require("dotenv");
 dotEnv.config();
 
-const registerroute = async (req, res) => {
+const registerController = async (req, res) => {
   const { name, email, mobile, password } = req.body;
   try {
     const user = await User.findOne({ email });
@@ -41,4 +41,4 @@ const registerroute = async (req, res) => {
     res.status(500).send({ status: "FAIL", message: "Something went wrong" });
   }
 };
-module.exports = registerroute;
+module.exports = registerController;

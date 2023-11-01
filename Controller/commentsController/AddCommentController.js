@@ -1,6 +1,6 @@
 const Product = require("../../Models/ProductModel");
 
-const usercommentroute = async (req, res) => {
+const usercommentController = async (req, res) => {
   const { usercomment } = req.body;
   const id = req.params.id;
   try {
@@ -18,4 +18,4 @@ const usercommentroute = async (req, res) => {
   }
 };
 
-module.exports = usercommentroute;
+module.exports = usercommentController;

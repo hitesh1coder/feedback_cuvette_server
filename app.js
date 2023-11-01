@@ -4,16 +4,16 @@ const dotenv = require("dotenv");
 dotenv.config();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const registerroute = require("./routes/Auth/RegisterRouts");
-const loginroute = require("./routes/Auth/LoginRouts");
 const auth = require("./Middleware/auth");
-const addproductroutes = require("./routes/ProductRoute/AddProductRouts");
-const usercommentroute = require("./routes/commentsRoutes/AddCommentRout");
-const getfilterproductroute = require("./routes/ProductRoute/GetFilterProduct");
 
-const uservoteroute = require("./routes/VoteRoute/VoteRoutes");
 const Product = require("./Models/ProductModel");
-const updateProductrout = require("./routes/ProductRoute/UpdateProduct");
+const registerController = require("./Controller/Auth/RegisterController");
+const loginController = require("./Controller/Auth/LoginController");
+const addProductController = require("./Controller/ProductController/AddProductController");
+const usercommentController = require("./Controller/commentsController/AddCommentController");
+const getfilterproductController = require("./Controller/ProductController/GetFilterProduct");
+const userVoteController = require("./Controller/VoteController/VoteController");
+const updateProductController = require("./Controller/ProductController/UpdateProduct");
 
 const app = express();
 
@@ -34,13 +34,13 @@ app.get("/product/:id", async (req, res) => {
 });
 
 // Routes
-app.post("/register", registerroute);
-app.post("/login", loginroute);
-app.post("/add-product", auth, addproductroutes);
-app.get("/products", getfilterproductroute);
-app.put("/product/update/:id", updateProductrout);
-app.post("/product/add-comment/:id", usercommentroute);
-app.post("/product/add-like/:id", uservoteroute);
+app.post("/register", registerController);
+app.post("/login", loginController);
+app.post("/add-product", auth, addProductController);
+app.get("/products", getfilterproductController);
+app.put("/product/update/:id", updateProductController);
+app.post("/product/add-comment/:id", usercommentController);
+app.post("/product/add-like/:id", userVoteController);
 
 // / Error Handling middlewere
 app.use((req, res, next) => {

@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 const User = require("../../Models/UserModel");
 const jwt = require("jsonwebtoken");
 
-const loginroute = async (req, res, next) => {
+const loginController = async (req, res, next) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
   try {
@@ -35,4 +35,4 @@ const loginroute = async (req, res, next) => {
   }
 };
 
-module.exports = loginroute;
+module.exports = loginController;

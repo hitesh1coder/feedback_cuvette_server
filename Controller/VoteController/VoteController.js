@@ -1,6 +1,6 @@
 const Product = require("../../Models/ProductModel");
 
-const uservoteroute = async (req, res) => {
+const userVoteController = async (req, res) => {
   let vote = 1;
   // uservote = parseInt(uservote);
   const id = req.params.id;
@@ -19,4 +19,4 @@ const uservoteroute = async (req, res) => {
   }
 };
 
-module.exports = uservoteroute;
+module.exports = userVoteController;
